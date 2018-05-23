@@ -1,9 +1,11 @@
+@import "../../../assets/variables";
+
 * {
-  color: #626262;
+  color: $main-grey-font;
 }
 
 .sidebar-container {
-  width: 270px;
+  width: $sidebar-width;
   position: absolute;
   height: 100%;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.16), 4px 4px 10px 0 rgba(0, 0, 0, 0.12);
