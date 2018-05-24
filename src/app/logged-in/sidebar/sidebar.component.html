@@ -1,15 +1,45 @@
-<aside class="sidebar-container navbar-light bg-light">
+<aside class="sidebar-container navbar-light bg-light app-sidebar">
   <div class="user-section">
-
+    <strong> Piotr Adamus</strong><br/>
+    <small>piotrekadamu16@gmail.com</small>
   </div>
+  <span class="menu-indicator"> {{ 'Użytkownik' | uppercase }}</span>
   <ul>
-    <li class="">
-    </li>
     <li>
-
-    </li>
-    <li>
-
+      <i class="fa fa-user"></i>
+      <a> <span>Profil</span></a>
     </li>
   </ul>
+  <span class="menu-indicator"> {{ 'urządzenia' | uppercase }}</span>
+  <ul>
+    <li>
+      <i class="fa fa-plus"></i>
+      <a> <span>Dodaj urządzenie</span></a>
+    </li>
+    <li>
+      <i class="fa fa-desktop"></i>
+      <a> <span>Zarządzaj urządzeniami</span></a>
+    </li>
+    <li>
+      <i class="fa fa-plus-circle"></i>
+      <a> <span>Dodaj grupę</span></a>
+    </li>
+
+    <li>
+      <i class="fa fa-server"></i>
+      <a> <span>Zarządzaj grupami</span></a>
+    </li>
+  </ul>
+  <span class="menu-indicator"> {{ 'Pliki' | uppercase }}</span>
+  <ul>
+    <li>
+      <i class="fa fa-file"></i>
+      <a> <span>Zainstaluj plik na urządzeniu</span></a>
+    </li>
+    <li>
+      <i class="fa fa-window-restore"></i>
+      <a> <span>Zainstaluj plik na grupie urządzeń</span></a>
+    </li>
+  </ul>
+
 </aside>

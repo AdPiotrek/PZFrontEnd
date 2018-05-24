@@ -9,12 +9,14 @@ import { HeaderComponent } from './landing/header/header.component';
 import {LandingComponent} from './landing/landing.component';
 import {SignInComponent} from './landing/sign-in/sign-in.component';
 import {SignUpComponent} from './landing/sign-up/sign-up.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TestingDirective } from './testing.directive';
-import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
-import {AppRoutingModule} from "./app-routing.module";
+import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
+import {AppRoutingModule} from './app-routing.module';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { SidebarComponent } from './logged-in/sidebar/sidebar.component';
+import { LoggedInHeaderComponent } from './logged-in/logged-in-header/logged-in-header.component';
+import {MatCardModule, MatFormField, MatFormFieldModule, MatInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { SidebarComponent } from './logged-in/sidebar/sidebar.component';
     SignUpComponent,
     TestingDirective,
     LoggedInComponent,
-    SidebarComponent
+    SidebarComponent,
+    LoggedInHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +38,10 @@ import { SidebarComponent } from './logged-in/sidebar/sidebar.component';
     ReactiveFormsModule,
     AppRoutingModule,
     LoggerModule.forRoot({level: NgxLoggerLevel.OFF}),
-    MDBBootstrapModule.forRoot()
-
+    MDBBootstrapModule.forRoot(),
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

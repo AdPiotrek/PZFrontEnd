@@ -1,0 +1,38 @@
+@import "../../assets/variables";
+
+.logged-in-content-container {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - #{$logged-in-header-height});
+  width: calc(100% - #{$sidebar-width})
+}
+
+.logged-in-header {
+  height: $logged-in-header-height;
+  background-color: lighten($main-grey-bg, 7%);
+  color: $main-grey-font;
+}
+
+.logged-in-header, .logged-in-content-container{
+  margin-left: $sidebar-width;
+}
+
+.mat-card-content{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .pz-mat-form-field{
+    width: 100%;
+  }
+
+  input{
+    width: 100%;
+  }
+
+}
