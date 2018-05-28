@@ -1,0 +1,18 @@
+<mat-card>
+  <div class="mat-card-content">
+    <form (ngSubmit)="addDevice()" [formGroup]="addDeviceForm">
+      <mat-form-field class="pz-mat-form-field">
+        <label for="name">Nazwa urządzenia</label>
+        <input id="name" type="text" matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="pz-mat-form-field">
+        <label for="mac">Adres Mac</label>
+        <input id="mac" type="text" matInput formControlName="mac">
+      </mat-form-field>
+
+      <button class="btn btn-sm btn-light">Zapisz</button>
+
+    </form>
+  </div>
+</mat-card>

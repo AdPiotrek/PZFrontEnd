@@ -1,5 +1,5 @@
 <!-- Login form -->
-<form [formGroup]="loginForm" (ngSubmit)="logForm()">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
   <p class="h5 text-center mb-4">Sign in</p>
 
   <div class="md-form">
@@ -10,8 +10,8 @@
 
   <div class="md-form">
     <i class="fa fa-lock prefix grey-text"></i>
-    <input type="password" formControlName="pass" id="pass" class="form-control" mdbInputDirective>
-    <label for="pass">Your password</label>
+    <input type="password" formControlName="password" id="password" class="form-control" mdbInputDirective>
+    <label for="password">Your password</label>
   </div>
 
   <div class="text-center">

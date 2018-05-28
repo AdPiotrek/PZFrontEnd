@@ -19,20 +19,3 @@
 .logged-in-header, .logged-in-content-container{
   margin-left: $sidebar-width;
 }
-
-.mat-card-content{
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  .pz-mat-form-field{
-    width: 100%;
-  }
-
-  input{
-    width: 100%;
-  }
-
-}

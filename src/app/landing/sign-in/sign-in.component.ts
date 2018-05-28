@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TestingDirective} from '../../testing.directive';
+import {AuthService} from "../../core/services/auth/auth.service";
+import {SignInRequest} from "../../shared/models/sign-in-request";
+import {NGXLogger} from "ngx-logger";
 
 @Component({
   selector: 'app-sign-in',
@@ -12,15 +15,25 @@ export class SignInComponent {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
+              private logger: NGXLogger) {
     this.createForm();
   }
 
   createForm(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      pass: ['', [Validators.required]]
+      password: ['', [Validators.required]]
     });
+  }
+
+  login(): void {
+    const loginRequest: SignInRequest = this.loginForm.value;
+    this.authService.login(loginRequest)
+      .subscribe((x) => {
+        this.logger.debug('token', x);
+      });
   }
 
 
