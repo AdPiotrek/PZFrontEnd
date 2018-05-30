@@ -23,7 +23,8 @@ import {DeviceAddingComponent} from './logged-in/content/device-adding/device-ad
 import {DeviceManagmentComponent} from './logged-in/content/device-managment/device-managment.component';
 import {GroupAddingComponent} from './logged-in/content/group-adding/group-adding.component';
 import {GroupManagmentComponent} from './logged-in/content/group-managment/group-managment.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptorService} from './core/services/auth-interceptor/auth-interceptor.service';
 
 
 @NgModule({
@@ -57,7 +58,9 @@ import {HttpClientModule} from '@angular/common/http';
     MatSortModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

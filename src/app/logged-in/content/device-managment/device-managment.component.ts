@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
+import {Device} from '../../../shared/models/device';
+import {DeviceRestService} from '../../../core/services/device-rest/device-rest.service';
 
 @Component({
   selector: 'app-device-managment',
@@ -9,20 +11,19 @@ import {MatSort, MatTableDataSource} from '@angular/material';
 export class DeviceManagmentComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
-
+  dataSource = null;
   displayedColumns = ['position', 'name', 'mac-adress'];
-  dataSource = new MatTableDataSource(
-    [{position: 1, name: 'grupa1', macAdress: '432143214-32432143122-1434312'},
-      {position: 2, name: 'tewdsat234', macAdress: '4321433242314-321132-1434312'},
-      {position: 3, name: 'fdasfgq234', macAdress: '432143214-32154353132-1434312'},
-      {position: 4, name: 'vczxvrt45', macAdress: '432143214-352435423-1434312'}]
-  );
 
-  constructor() {
+  constructor(private deviceRest: DeviceRestService) {
   }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
+    this.deviceRest.getDevicesList()
+      .subscribe((devices: Device[]) => {
+        console.log(devices);
+        this.dataSource = new MatTableDataSource<Device>(devices);
+        this.dataSource.sort = this.sort;
+      });
   }
 
 }

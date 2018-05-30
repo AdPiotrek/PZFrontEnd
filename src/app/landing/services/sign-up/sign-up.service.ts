@@ -12,6 +12,6 @@ export class SignUpService {
   }
 
   signUp(user: SignUpUserRequest): Observable<any> {
-    return this.http.post('http://localhost:8080/user/register', user);
+    return this.http.post('https://localhost:8443/user/register', user);
   }
 }

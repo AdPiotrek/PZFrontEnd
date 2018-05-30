@@ -4,6 +4,7 @@ import {TestingDirective} from '../../testing.directive';
 import {AuthService} from "../../core/services/auth/auth.service";
 import {SignInRequest} from "../../shared/models/sign-in-request";
 import {NGXLogger} from "ngx-logger";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +18,8 @@ export class SignInComponent {
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              private logger: NGXLogger) {
+              private logger: NGXLogger,
+              private router: Router) {
     this.createForm();
   }
 
@@ -32,7 +34,7 @@ export class SignInComponent {
     const loginRequest: SignInRequest = this.loginForm.value;
     this.authService.login(loginRequest)
       .subscribe((x) => {
-        this.logger.debug('token', x);
+          this.router.navigate(['/logged/devices']);
       });
   }
 
