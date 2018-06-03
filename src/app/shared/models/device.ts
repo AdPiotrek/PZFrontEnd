@@ -1,5 +1,5 @@
 export interface Device {
-  devceid?: string;
+  deviceid?: string;
   name?: string;
   macAdress?: string;
 }

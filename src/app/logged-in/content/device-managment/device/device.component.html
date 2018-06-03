@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card *ngIf="device; else loading">
   <div class="mat-card-content">
-    <mat-card-title>Dodaj urządenie</mat-card-title>
+    <mat-card-title>Zmień dane urządzania</mat-card-title>
     <mat-divider></mat-divider>
-    <form (ngSubmit)="addDevice()" [formGroup]="addDeviceForm">
+    <form (ngSubmit)="addDevice()" [formGroup]="devicEditForm">
       <mat-form-field class="pz-mat-form-field">
         <label for="name">Nazwa urządzenia</label>
         <input id="name" type="text" matInput formControlName="name">
@@ -18,3 +18,12 @@
     </form>
   </div>
 </mat-card>
+
+<ng-template #loading>
+  <mat-card>
+    <div class="mat-card-content">
+        Loading ......
+    </div>
+  </mat-card>
+
+</ng-template>

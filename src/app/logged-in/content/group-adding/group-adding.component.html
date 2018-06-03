@@ -1,9 +1,11 @@
 <mat-card>
+  <mat-card-title>
+    Dodaj grupę
+  </mat-card-title>
   <div class="mat-card-content">
-    <form (ngSubmit)="addGroup()" [formGroup]="addGropForm">
+    <form (ngSubmit)="addGroup()" [formGroup]="addGroupForm">
       <mat-form-field class="pz-mat-form-field">
-        <label for="name">Nazwa urządzenia</label>
-        <input  id="name" type="text" matInput formControlName="name">
+        <input  placeholder="Nazwa" id="name" type="text" matInput formControlName="name">
       </mat-form-field>
       <button class="btn btn-sm btn-light">Zapisz</button>
     </form>

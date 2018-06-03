@@ -16,5 +16,11 @@ body { margin: 0;}
   input{
     width: 100%;
   }
-
 }
+
+.styled-mat-list{
+  &:hover{
+    background: #e0e0e0;
+  }
+}
+

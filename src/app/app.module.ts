@@ -17,7 +17,7 @@ import {LoggedInComponent} from './logged-in/logged-in.component';
 import {SidebarComponent} from './logged-in/sidebar/sidebar.component';
 import {LoggedInHeaderComponent} from './logged-in/logged-in-header/logged-in-header.component';
 import {
-  MatCardModule, MatFormFieldModule, MatInputModule, MatSortModule, MatTableModule
+  MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatSortModule, MatTableModule
 } from '@angular/material';
 import {DeviceAddingComponent} from './logged-in/content/device-adding/device-adding.component';
 import {DeviceManagmentComponent} from './logged-in/content/device-managment/device-managment.component';
@@ -25,6 +25,10 @@ import {GroupAddingComponent} from './logged-in/content/group-adding/group-addin
 import {GroupManagmentComponent} from './logged-in/content/group-managment/group-managment.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from './core/services/auth-interceptor/auth-interceptor.service';
+import { DeviceComponent } from './logged-in/content/device-managment/device/device.component';
+import { GroupComponent } from './logged-in/content/group-managment/group/group.component';
+import { GroupUsersPipe } from './logged-in/content/group-managment/group/group-users-pipe/group-users.pipe';
+import { FileAddingComponent } from './logged-in/content/file-adding/file-adding.component';
 
 
 @NgModule({
@@ -42,6 +46,10 @@ import {AuthInterceptorService} from './core/services/auth-interceptor/auth-inte
     DeviceManagmentComponent,
     GroupAddingComponent,
     GroupManagmentComponent,
+    DeviceComponent,
+    GroupComponent,
+    GroupUsersPipe,
+    FileAddingComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +64,8 @@ import {AuthInterceptorService} from './core/services/auth-interceptor/auth-inte
     MatInputModule,
     MatCardModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}

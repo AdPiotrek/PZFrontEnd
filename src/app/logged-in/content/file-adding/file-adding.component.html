@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>
+    Dodaj grupę
+  </mat-card-title>
+  <div class="mat-card-content">
+    <form (ngSubmit)="uploadFile();">
+      <mat-label class="form-control" (click)="fileInput.click()">
+        {{fileInput.value ?  fileInput.value : "Dodaj plik ..."}}
+      </mat-label>
+      <input placeholder="Nazwa"
+             id="name"
+             type="file"
+             class="input-control"
+             #fileInput
+             (change)="onFileChange($event)">
+      <button class="btn btn-sm btn-light">Zapisz</button>
+    </form>
+  </div>
+</mat-card>

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Device} from '../../../shared/models/device';
-import {Observable} from "rxjs/index";
+import {Observable} from 'rxjs/index';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,9 @@ export class DeviceRestService {
 
   getDevicesList(): Observable<Device[]> {
     return this.http.get<Device[]>('https://localhost:8443/device/get');
+  }
+
+  getDevice(id: number): Observable<Device> {
+    return this.http.get<Device>(`https://localhost:8443/device/get/${id}`);
   }
 }

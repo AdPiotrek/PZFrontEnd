@@ -1,5 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
+import {Router} from '@angular/router';
+import {Device} from '../../../shared/models/device';
+import {GroupRestService} from '../../../core/services/groups-rest/group-rest.service';
+import {DeviceGroup} from '../../../shared/models/device-group';
 
 @Component({
   selector: 'app-group-managment',
@@ -10,19 +14,29 @@ export class GroupManagmentComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['position', 'name'];
-  dataSource = new MatTableDataSource(
-    [
-      {position: 1, name: 'grupa1'},
-      {position: 2, name: 'tewdsat234'},
-      {position: 3, name: 'fdasfgq234'},
-      {position: 4, name: 'vczxvrt45'}]
-  );
 
-  constructor() {
+  dataSource: MatTableDataSource<DeviceGroup>;
+  displayedColumns = ['position', 'familyName'];
+
+  constructor(private router: Router,
+              private deviceGroupRest: GroupRestService) {
   }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
+    this.getGroups();
   }
+
+  getGroups(): void {
+    this.deviceGroupRest.getLoggedUserDeviceGroups()
+      .subscribe((group: Array<DeviceGroup>) => {
+        this.dataSource = new MatTableDataSource(group);
+        this.dataSource.sort = this.sort;
+      });
+  }
+
+  goToGroup(row: DeviceGroup): void {
+    this.router.navigate(['/logged/group', row.idDeviceFamilies ]);
+  }
+
+
 }

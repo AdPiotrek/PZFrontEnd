@@ -33,7 +33,6 @@ export class DeviceAddingComponent implements OnInit {
   addDevice() {
     this.deviceRest.addDevice(this.addDeviceForm.value)
       .subscribe(() => {
-          //alert
           this.logger.debug('Dodane');
         },
         () => {
