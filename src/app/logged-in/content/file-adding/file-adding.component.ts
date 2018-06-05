@@ -38,8 +38,7 @@ export class FileAddingComponent implements OnInit {
     wrappedFile.append('file', this.selectedFile, this.selectedFile.name);
     this.fileService.uploadFile(wrappedFile)
       .subscribe(() => {
-        console.log('dodane');
-        console.log('x');
-      })
+
+      });
   }
 }

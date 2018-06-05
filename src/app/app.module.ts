@@ -17,7 +17,7 @@ import {LoggedInComponent} from './logged-in/logged-in.component';
 import {SidebarComponent} from './logged-in/sidebar/sidebar.component';
 import {LoggedInHeaderComponent} from './logged-in/logged-in-header/logged-in-header.component';
 import {
-  MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatSortModule, MatTableModule
+  MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatListModule, MatSortModule, MatTableModule
 } from '@angular/material';
 import {DeviceAddingComponent} from './logged-in/content/device-adding/device-adding.component';
 import {DeviceManagmentComponent} from './logged-in/content/device-managment/device-managment.component';
@@ -65,7 +65,8 @@ import { FileAddingComponent } from './logged-in/content/file-adding/file-adding
     MatCardModule,
     MatSortModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}

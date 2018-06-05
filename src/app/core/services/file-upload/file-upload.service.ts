@@ -11,6 +11,7 @@ export class FileUploadService {
   }
 
   uploadFile(fd: FormData): Observable<any> {
-    return this.httpClient.post('https://localhost:8443/blob?fileName=ogorek', fd);
+    const file: File = <File> fd.get('file');
+    return this.httpClient.post(`https://localhost:8443/blob?${file.name}`, fd);
   }
 }
