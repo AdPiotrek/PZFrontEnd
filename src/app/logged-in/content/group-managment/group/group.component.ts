@@ -9,6 +9,7 @@ import {DeviceGroup} from '../../../../shared/models/device-group';
 import {MatSelectionListChange} from '@angular/material';
 import {Device} from '../../../../shared/models/device';
 import {NGXLogger} from 'ngx-logger';
+import {GrowlService} from 'ngx-growl';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class GroupComponent implements OnInit {
   constructor(private groupRest: GroupRestService,
               private activatedRoute: ActivatedRoute,
               private devicesRest: DeviceRestService,
-              private logger: NGXLogger) {
+              private logger: NGXLogger,
+              private growlService: GrowlService) {
   }
 
   ngOnInit() {
@@ -65,11 +67,14 @@ export class GroupComponent implements OnInit {
       this.groupRest.addDeviceToGroup(this.group.idDeviceFamilies, device.deviceid)
         .subscribe((res) => {
           this.logger.debug(res);
+          this.growlService.addSuccess('Dodano')
         });
     } else {
       this.groupRest.removeDeviceFromGroup(this.group.idDeviceFamilies, device.deviceid)
         .subscribe((res) => {
           this.logger.debug(res);
+          this.growlService.addSuccess('Usunieto')
+
         }, (err) => {
           this.logger.error(err);
         });

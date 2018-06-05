@@ -1,7 +1,9 @@
 <aside class="sidebar-container navbar-light bg-light app-sidebar">
   <div class="user-section">
-    <strong> Piotr Adamus</strong><br/>
-    <small>piotrekadamu16@gmail.com</small>
+    <ng-container *ngIf="user | async as user">
+      <strong> {{user.name}}{{user.surname}}</strong><br/>
+      <small>{{user.email}}</small>
+    </ng-container>
   </div>
   <span class="menu-indicator"> {{ 'Użytkownik' | uppercase }}</span>
   <ul>
@@ -37,11 +39,11 @@
     </li>
     <li>
       <i class="fa fa-file"></i>
-      <a> <span>Zainstaluj plik na urządzeniu</span></a>
+      <a routerLink="/logged/upload-file-to-device"> <span>Zainstaluj plik na urządzeniu</span></a>
     </li>
     <li>
       <i class="fa fa-window-restore"></i>
-      <a> <span>Zainstaluj plik na grupie urządzeń</span></a>
+      <a routerLink="/logged/upload-file-to-group"> <span>Zainstaluj plik na grupie urządzeń</span></a>
     </li>
   </ul>
 

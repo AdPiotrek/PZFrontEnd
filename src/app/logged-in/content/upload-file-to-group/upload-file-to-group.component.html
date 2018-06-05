@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>
+    Wgraj plik do grup
+  </mat-card-title>
+  <div class="mat-card-content">
+    <ng-container  *ngFor="let group of groups | async">
+      <app-upload-file-to-group-list-row [group]="group" [files]="files | async"></app-upload-file-to-group-list-row>
+    </ng-container>
+  </div>
+</mat-card>

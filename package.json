@@ -31,6 +31,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.10",
+    "ngx-growl": "^1.0.3",
     "ngx-logger": "^3.0.0-rc1",
     "rxjs": "^6.1.0",
     "zone.js": "^0.8.26"

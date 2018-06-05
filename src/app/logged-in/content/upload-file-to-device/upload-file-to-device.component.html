@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>
+    Wgraj plik na urządzenie
+  </mat-card-title>
+  <div class="mat-card-content">
+    <ng-container  *ngFor="let device of devices | async">
+      <app-upload-file-to-device-list-row [device]="device" [files]="files | async"></app-upload-file-to-device-list-row>
+    </ng-container>
+  </div>
+</mat-card>
