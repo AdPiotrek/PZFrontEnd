@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GroupRestService } from '../../../core/services/groups-rest/group-rest.service';
 import { NGXLogger } from 'ngx-logger';
+import {GrowlService} from 'ngx-growl';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-group-adding',
@@ -14,7 +16,8 @@ export class GroupAddingComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private deviceGroupRest: GroupRestService,
-    private logger: NGXLogger) {
+    private logger: NGXLogger,
+              private growlService: GrowlService) {
     this.createForm();
   }
   /**
@@ -38,8 +41,11 @@ export class GroupAddingComponent implements OnInit {
       .subscribe(() => {
         this.addGroupForm.reset();
       },
-        (err: Error) => {
+        (err: HttpErrorResponse) => {
           this.logger.error(err);
+          if (err.status === 409) {
+            this.growlService.addError('Grupa o podanej nazwie już istnieje');
+          }
         });
   }
 

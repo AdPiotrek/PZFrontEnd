@@ -29,6 +29,11 @@ import { DeviceComponent } from './logged-in/content/device-managment/device/dev
 import { GroupComponent } from './logged-in/content/group-managment/group/group.component';
 import { GroupUsersPipe } from './logged-in/content/group-managment/group/group-users-pipe/group-users.pipe';
 import { FileAddingComponent } from './logged-in/content/file-adding/file-adding.component';
+import { UploadFileToDeviceComponent } from './logged-in/content/upload-file-to-device/upload-file-to-device.component';
+import { UploadFileToDeviceListRowComponent } from './logged-in/content/upload-file-to-device/upload-file-to-device-list-row/upload-file-to-device-list-row.component';
+import { UploadFileToGroupComponent } from './logged-in/content/upload-file-to-group/upload-file-to-group.component';
+import { UploadFileToGroupListRowComponent } from './logged-in/content/upload-file-to-group/upload-file-to-group-list-row/upload-file-to-group-list-row.component';
+import {GrowlModule} from 'ngx-growl';
 
 
 @NgModule({
@@ -50,6 +55,10 @@ import { FileAddingComponent } from './logged-in/content/file-adding/file-adding
     GroupComponent,
     GroupUsersPipe,
     FileAddingComponent,
+    UploadFileToDeviceComponent,
+    UploadFileToDeviceListRowComponent,
+    UploadFileToGroupComponent,
+    UploadFileToGroupListRowComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,7 @@ import { FileAddingComponent } from './logged-in/content/file-adding/file-adding
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    GrowlModule.forRoot({maxMessages: 5, displayTimeMs: 5000}),
     LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG}),
     MDBBootstrapModule.forRoot(),
     MatFormFieldModule,

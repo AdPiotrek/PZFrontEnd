@@ -1,0 +1,22 @@
+.row-wrapper{
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}
+
+
+.name{
+  flex-basis: 40%;
+}
+.select-container{
+  flex-basis: 40%;
+}
+
+.upload-btn{
+  flex-basis: 20%;
+
+  > button {
+    margin: 0 0 0 10px;
+  }
+}
+

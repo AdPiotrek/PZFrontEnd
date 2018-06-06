@@ -2,7 +2,7 @@
   <div class="mat-card-content">
     <mat-card-title>Zmień dane urządzania</mat-card-title>
     <mat-divider></mat-divider>
-    <form (ngSubmit)="addDevice()" [formGroup]="devicEditForm">
+    <form (ngSubmit)="editDevice()" [formGroup]="devicEditForm">
       <mat-form-field class="pz-mat-form-field">
         <label for="name">Nazwa urządzenia</label>
         <input id="name" type="text" matInput formControlName="name">
@@ -13,8 +13,8 @@
         <input id="mac" type="text" matInput formControlName="macAdress">
       </mat-form-field>
 
-      <button class="btn btn-sm btn-light">Zapisz</button>
-
+      <button type="submit" class="btn btn-sm btn-light">Zapisz</button>
+      <button type="button" class="btn btn-sm btn-light" (click)="deleteDevice()">Usuń</button>
     </form>
   </div>
 </mat-card>

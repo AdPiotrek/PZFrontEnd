@@ -3,6 +3,12 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NGXLogger } from "ngx-logger";
 import { UtilService } from "../../../core/services/Util/util.service";
 import { DeviceRestService } from "../../../core/services/device-rest/device-rest.service";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NGXLogger} from 'ngx-logger';
+import {UtilService} from '../../../core/services/Util/util.service';
+import {DeviceRestService} from '../../../core/services/device-rest/device-rest.service';
+import {GrowlService} from 'ngx-growl';
 
 @Component({
   selector: 'app-device-adding',
@@ -16,7 +22,8 @@ export class DeviceAddingComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private logger: NGXLogger,
     private deviceRest: DeviceRestService,
-    private utilService: UtilService) {
+    private utilService: UtilService,
+              private growlService: GrowlService) {
     this.createForm();
   }
 
@@ -35,11 +42,16 @@ export class DeviceAddingComponent implements OnInit {
    * @description Adding a device
    */
   addDevice() {
+    if (this.addDeviceForm.invalid) {
+      this.growlService.addError('Podane wartosci sa nieprawidlowe');
+      return;
+    }
     this.deviceRest.addDevice(this.addDeviceForm.value)
       .subscribe(() => {
-        this.logger.debug('Dodane');
-      },
+          this.logger.debug('Dodane');
+        this.growlService.addSuccess('Urządzenie dodane');},
         () => {
+          this.growlService.addError('Nazwa lub adres mac są zajętę przez inne urządzenie');
 
         });
   }

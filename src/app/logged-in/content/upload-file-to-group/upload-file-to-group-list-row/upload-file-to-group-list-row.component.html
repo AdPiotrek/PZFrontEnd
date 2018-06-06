@@ -1,0 +1,20 @@
+<div class="row-wrapper">
+  <div class="name">
+    {{group?.familyName}}
+  </div>
+  <div class="select-container">
+    <form [formGroup]="selectForm">
+      <select formControlName="select">
+        <option [value]="null">Wybierz plik</option>
+        <option *ngFor="let file of files" [value]="file.blobid">{{file.blobName}}</option>
+      </select>
+    </form>
+  </div>
+  <div class="upload-btn">
+    <button class="btn btn-light btn-sm" (click)="uploadFiles()">
+      Dodaj
+    </button>
+  </div>
+
+</div>
+

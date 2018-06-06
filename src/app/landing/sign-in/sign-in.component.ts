@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TestingDirective } from '../../testing.directive';
-import { AuthService } from "../../core/services/auth/auth.service";
-import { SignInRequest } from "../../shared/models/sign-in-request";
-import { NGXLogger } from "ngx-logger";
-import { Router } from "@angular/router";
+import { AuthService } from '../../core/services/auth/auth.service';
+import { SignInRequest } from '../../shared/models/sign-in-request';
+import { NGXLogger } from 'ngx-logger';
+import { Router } from '@angular/router';
+import {GrowlService} from 'ngx-growl';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,7 +20,8 @@ export class SignInComponent {
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
     private logger: NGXLogger,
-    private router: Router) {
+    private router: Router,
+              private growlService: GrowlService) {
     this.createForm();
   }
 
@@ -37,6 +39,8 @@ export class SignInComponent {
     this.authService.login(loginRequest)
       .subscribe((x) => {
         this.router.navigate(['/logged/devices']);
+      }, () => {
+        this.growlService.addError('Email lub hasło są nieprawidłowe');
       });
   }
 

@@ -12,6 +12,8 @@ import {DeviceComponent} from './logged-in/content/device-managment/device/devic
 import {AuthGuard} from './core/guards/auth/auth.guard';
 import {GroupComponent} from './logged-in/content/group-managment/group/group.component';
 import {FileAddingComponent} from './logged-in/content/file-adding/file-adding.component';
+import {UploadFileToDeviceComponent} from './logged-in/content/upload-file-to-device/upload-file-to-device.component';
+import {UploadFileToGroupComponent} from './logged-in/content/upload-file-to-group/upload-file-to-group.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,7 +31,9 @@ const routes: Routes = [
       {path: 'groups', component: GroupManagmentComponent},
       {path: 'device/:id', component: DeviceComponent},
       {path: 'group/:id', component: GroupComponent},
-      {path: 'add-file', component: FileAddingComponent}
+      {path: 'add-file', component: FileAddingComponent},
+      {path: 'upload-file-to-device', component: UploadFileToDeviceComponent},
+      {path: 'upload-file-to-group', component: UploadFileToGroupComponent}
     ]
   }
 ];

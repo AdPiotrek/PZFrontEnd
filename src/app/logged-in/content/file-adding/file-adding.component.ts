@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FileChangeEvent } from '@angular/compiler-cli/src/perform_watch';
 import { FileUploadService } from '../../../core/services/file-upload/file-upload.service';
+import {GrowlService} from 'ngx-growl';
 
 @Component({
   selector: 'app-file-adding',
@@ -14,7 +15,8 @@ export class FileAddingComponent implements OnInit {
   selectedFile: File;
 
   constructor(private fb: FormBuilder,
-    private fileService: FileUploadService) {
+    private fileService: FileUploadService,
+              private growlService: GrowlService) {
 
   }
   /**
@@ -44,6 +46,10 @@ export class FileAddingComponent implements OnInit {
    * @description Uploading a file
    */
   uploadFile(): void {
+    if (this.selectedFile !== null) {
+      this.growlService.addError('Nie dodałes pliku');
+      return;
+    }
     const wrappedFile: FormData = new FormData();
     wrappedFile.append('file', this.selectedFile, this.selectedFile.name);
     this.fileService.uploadFile(wrappedFile)

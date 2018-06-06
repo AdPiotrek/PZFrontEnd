@@ -4,29 +4,34 @@
 
   <div class="md-form">
     <i class="fa fa-user prefix grey-text"></i>
-    <input type="text" formControlName="firstName" id="firstName" class="form-control" mdbInputDirective>
+    <input type="text" formControlName="firstName" id="firstName" class="form-control" mdbInputDirective
+           data-success=" " data-error="To pole jest wymagane">
     <label for="firstName">Imię</label>
   </div>
 
   <div class="md-form without-icon">
-    <input type="text" formControlName="lastName" id="lastName" class="form-control" mdbInputDirective>
+    <input type="text" formControlName="lastName" id="lastName" class="form-control" mdbInputDirective
+           data-success=" " data-error="To pole jest wymagane">
     <label for="lastName">Nazwisko</label>
   </div>
 
   <div class="md-form">
     <i class="fa fa-envelope prefix grey-text"></i>
-    <input type="email" formControlName="email" id="email" class="form-control" mdbInputDirective>
+    <input type="email" formControlName="email" id="email" class="form-control" mdbInputDirective
+           data-success=" " data-error="Podany mail jest nieprawidłowy">
     <label for="email">Twój email</label>
   </div>
 
   <div class="md-form">
     <i class="fa fa-lock prefix grey-text"></i>
-    <input type="password" formControlName="password" id="password" class="form-control"  appTesting mdbInputDirective>
+    <input type="password" formControlName="password" id="password" class="form-control" appTesting mdbInputDirective
+           data-success=" ">
     <label for="password">Podaj hasło</label>
   </div>
 
   <div class="md-form without-icon">
-    <input type="password" formControlName="repeatedPassword" id="repeatedPassword" class="form-control"  appTesting mdbInputDirective>
+    <input type="password" formControlName="repeatedPassword" id="repeatedPassword" class="form-control" appTesting
+           mdbInputDirective data-success=" " data-error="Hasło musi posiadać conajmniej jedna cyfre, a jego dlugosć nie może być mniejsza niż 2">
     <label for="repeatedPassword">Powtórz hasło</label>
   </div>
 
