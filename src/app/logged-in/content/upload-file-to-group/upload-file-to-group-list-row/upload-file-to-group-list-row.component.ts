@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HistoryRestService} from '../../../../core/services/history-rest.service';
-import {DeviceGroup} from '../../../../shared/models/device-group';
-import {Observable} from 'rxjs/internal/Observable';
-import {forkJoin} from 'rxjs/internal/observable/forkJoin';
-import {GrowlService} from 'ngx-growl';
-import {NGXLogger} from 'ngx-logger';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HistoryRestService } from '../../../../core/services/history-rest.service';
+import { DeviceGroup } from '../../../../shared/models/device-group';
+import { Observable } from 'rxjs/internal/Observable';
+import { forkJoin } from 'rxjs/internal/observable/forkJoin';
+import { GrowlService } from 'ngx-growl';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-upload-file-to-group-list-row',
@@ -20,22 +20,28 @@ export class UploadFileToGroupListRowComponent implements OnInit {
   selectForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private historyRest: HistoryRestService,
-              private growlService: GrowlService,
-              private logger: NGXLogger) {
+    private historyRest: HistoryRestService,
+    private growlService: GrowlService,
+    private logger: NGXLogger) {
   }
-
+  /**
+   * @description Single call when creating a group form component
+   */
   ngOnInit() {
     this.createForm();
   }
 
-
+  /**
+   * @description Creating a form of a form selection object
+   */
   createForm() {
     this.selectForm = this.fb.group({
       select: [null, Validators.required]
     });
   }
-
+  /**
+   * @description Upload files to the database
+   */
   uploadFiles() {
     this.logger.debug(this.selectForm.get('select').value === null);
     console.log(this.selectForm);
@@ -53,11 +59,13 @@ export class UploadFileToGroupListRowComponent implements OnInit {
         observables.push(this.historyRest.registerInHistory(device.deviceid, this.selectForm.get('select').value));
       }
     }
-
+    /**
+     * @description Validation of the correctness of adding a files to the database
+     */
     forkJoin(...observables)
       .subscribe(() => {
-          this.growlService.addSuccess('Pliki dodane');
-        },
+        this.growlService.addSuccess('Pliki dodane');
+      },
         (err) => {
         });
   }

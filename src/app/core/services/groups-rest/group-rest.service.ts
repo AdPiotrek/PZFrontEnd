@@ -13,12 +13,14 @@ export class GroupRestService {
   constructor(private http: HttpClient) {
   }
   /**
-   * @param {string} name  Pass the name of the device added to the group 
+   * @param {string} name  Pass the name of the device added to the group
    */
   addDeviceGroup(name: string): Observable<any> {
     return this.http.post(`https://localhost:8443/deviceFamily/create`, { familyName: name });
   }
-
+  /**
+   * @description Downloading the logged in device user in the group
+   */
   getLoggedUserDeviceGroups(): Observable<Array<DeviceGroup>> {
     return this.http.get<Array<DeviceGroup>>('https://localhost:8443/deviceFamily/get');
   }

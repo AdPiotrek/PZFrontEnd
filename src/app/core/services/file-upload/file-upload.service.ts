@@ -18,6 +18,9 @@ export class FileUploadService {
     return this.httpClient.post(`https://localhost:8443/blob?fileName=${file.name}`, fd);
   }
 
+  /**
+   * @description Download blob list
+   */
   getBlobsList(): Observable<Array<{ blobid: string, blobName: string }>> {
     return this.httpClient.get<Array<{ blobid: string, blobName: string }>>(`https://localhost:8443/blob/get`);
   }

@@ -30,11 +30,16 @@ export class DeviceRestService {
   getDevice(id: number): Observable<Device> {
     return this.http.get<Device>(`https://localhost:8443/device/get/${id}`);
   }
-
+  /**
+   * @description Removal of the device with ID
+   * @param id Id device
+   */
   deleteDevice(id: number): Observable<any> {
     return this.http.delete(`https://localhost:8443/device/delete/${id}`);
   }
-
+  /**
+   * @description Updating device data with ID
+   */
   updateDevice(req: Device): Observable<any> {
     return this.http.put(`https://localhost:8443/device/edit`, req);
   }

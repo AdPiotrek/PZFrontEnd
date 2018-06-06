@@ -19,6 +19,9 @@ export class DeviceManagmentComponent implements OnInit {
     private router: Router) {
   }
 
+  /**
+  * @description Single call when creating a array of devices form component
+  */
   ngOnInit() {
     this.deviceRest.getDevicesList()
       .subscribe((devices: Device[]) => {

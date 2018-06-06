@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GrowlService} from 'ngx-growl';
+import { GrowlService } from 'ngx-growl';
 
 @Component({
   selector: 'app-logged-in',
@@ -14,7 +14,7 @@ export class LoggedInComponent implements OnInit {
   constructor(private growlService: GrowlService) { }
 
   /**
-   * @ignore
+   * @description Single call when creating a message of success
    */
   ngOnInit() {
     this.growlService.addSuccess('super udalo sie');

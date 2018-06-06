@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GroupRestService } from '../../../core/services/groups-rest/group-rest.service';
 import { NGXLogger } from 'ngx-logger';
-import {GrowlService} from 'ngx-growl';
-import {HttpErrorResponse} from '@angular/common/http';
+import { GrowlService } from 'ngx-growl';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-group-adding',
@@ -17,7 +17,7 @@ export class GroupAddingComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private deviceGroupRest: GroupRestService,
     private logger: NGXLogger,
-              private growlService: GrowlService) {
+    private growlService: GrowlService) {
     this.createForm();
   }
   /**
@@ -25,7 +25,9 @@ export class GroupAddingComponent implements OnInit {
    */
   ngOnInit() {
   }
-
+  /**
+   * @description Create a form for a group object that adds a form
+   */
   createForm(): void {
     this.addGroupForm = this.fb.group({
       name: ['', [Validators.required]]

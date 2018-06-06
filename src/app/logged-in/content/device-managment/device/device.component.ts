@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Device} from '../../../../shared/models/device';
-import {switchMap} from 'rxjs/operators';
-import {DeviceRestService} from '../../../../core/services/device-rest/device-rest.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';import {NGXLogger} from 'ngx-logger';
-import {GrowlService} from 'ngx-growl';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Device } from '../../../../shared/models/device';
+import { switchMap } from 'rxjs/operators';
+import { DeviceRestService } from '../../../../core/services/device-rest/device-rest.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; import { NGXLogger } from 'ngx-logger';
+import { GrowlService } from 'ngx-growl';
 
 @Component({
   selector: 'app-device',
@@ -18,13 +18,15 @@ export class DeviceComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute,
     private deviceRest: DeviceRestService,
     private fb: FormBuilder,
-              private router: Router,
-              private logger: NGXLogger,
-              private growlService: GrowlService) {
+    private router: Router,
+    private logger: NGXLogger,
+    private growlService: GrowlService) {
     this.getDevice();
     this.buildForm();
   }
-
+  /**
+   * @ignore
+   */
   ngOnInit() {
   }
   /**
@@ -50,14 +52,16 @@ export class DeviceComponent implements OnInit {
       console.log(device);
     });
   }
-
+  /**
+   * @description Editing the device
+   */
   editDevice(): void {
     const req = {
       deviceid: this.device.deviceid,
       ...this.devicEditForm.value
     };
 
-    if (this.devicEditForm.invalid){
+    if (this.devicEditForm.invalid) {
       this.growlService.addError('Podane pola są nieprawidłowe');
       return;
     }
@@ -72,7 +76,9 @@ export class DeviceComponent implements OnInit {
 
 
   }
-
+  /**
+   * @description Removing the device
+   */
   deleteDevice() {
     this.deviceRest.deleteDevice(+this.device.deviceid)
       .subscribe((res) => {

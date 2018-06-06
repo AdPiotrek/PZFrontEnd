@@ -1,8 +1,8 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {Device} from '../../../../shared/models/device';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HistoryRestService} from '../../../../core/services/history-rest.service';
-import {GrowlService} from 'ngx-growl';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Device } from '../../../../shared/models/device';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HistoryRestService } from '../../../../core/services/history-rest.service';
+import { GrowlService } from 'ngx-growl';
 
 @Component({
   selector: 'app-upload-file-to-device-list-row',
@@ -16,23 +16,30 @@ export class UploadFileToDeviceListRowComponent implements OnInit {
   selectForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-              private historyRest: HistoryRestService,
-              private growlService: GrowlService) {
+    private historyRest: HistoryRestService,
+    private growlService: GrowlService) {
   }
 
+  /**
+   * @description Single call when creating a group form component
+   */
   ngOnInit() {
     this.createForm();
   }
 
-
+  /**
+   * @description Creating a form of a form selection object
+   */
   createForm() {
     this.selectForm = this.fb.group({
       select: ['', Validators.required]
     });
   }
-
+  /**
+   * @description Uploading a file
+   */
   uploadFile() {
-    if(this.selectForm.invalid || this.selectForm.get('select').value === ''){
+    if (this.selectForm.invalid || this.selectForm.get('select').value === '') {
       this.growlService.addWarn('Nie wybrałes pliku')
       return;
     }
@@ -40,7 +47,7 @@ export class UploadFileToDeviceListRowComponent implements OnInit {
       .subscribe(() => {
         this.growlService.addSuccess('Pliki dodane');
       })
-    ;
+      ;
   }
 
 

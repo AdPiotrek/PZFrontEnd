@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignUpService } from '../services/sign-up/sign-up.service';
-import {GrowlService} from 'ngx-growl';
+import { GrowlService } from 'ngx-growl';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,9 +16,11 @@ export class SignUpComponent implements OnInit {
   constructor(private log: NGXLogger,
     private fb: FormBuilder,
     private signUpService: SignUpService,
-              private growlService: GrowlService) {
+    private growlService: GrowlService) {
   }
-
+  /**
+   * @description Single call when creating a sign up group form component
+   */
   ngOnInit() {
     this.signUpForm = this.fb.group({
       firstName: ['', [Validators.required]],
@@ -29,7 +31,7 @@ export class SignUpComponent implements OnInit {
     });
   }
   /**
-   * @description Rejestracja
+   * @description Registration to applications
    */
   signUp(): void {
 

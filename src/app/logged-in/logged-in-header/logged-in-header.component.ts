@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../core/services/auth/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-logged-in-header',
@@ -20,6 +20,9 @@ export class LoggedInHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * @description Logout of account
+   */
   logout() {
     this.authService.logout();
   }

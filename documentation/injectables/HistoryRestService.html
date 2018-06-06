@@ -713,7 +713,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>AuthGuard</li>
+  <li>HistoryRestService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -731,7 +731,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/guards/auth/auth.guard.ts</code>
+            <code>src/app/core/services/history-rest.service.ts</code>
         </p>
 
 
@@ -750,13 +750,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#canActivate">canActivate</a>
-                            </li>
-                            <li>
-                                <a href="#saveToken">saveToken</a>
-                            </li>
-                            <li>
-                                <a href="#saveTokenFromSession">saveTokenFromSession</a>
+                                <a href="#registerInHistory">registerInHistory</a>
                             </li>
                         </ul>
                     </td>
@@ -776,12 +770,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/guards/auth/auth.guard.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/core/services/history-rest.service.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -799,22 +793,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>authService</td>
+                                                        <td>http</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                    <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -840,106 +822,25 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="canActivate"></a>
+                        <a name="registerInHistory"></a>
                         <span class="name">
                             <b>
-                            canActivate
+                            registerInHistory
                             </b>
-                            <a href="#canActivate"><span class="fa fa-link"></span></a>
+                            <a href="#registerInHistory"><span class="fa fa-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
+<code>registerInHistory(deviceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, blobId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/guards/auth/auth.guard.ts:18</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>next</td>
-                                                        <td>
-                                                                    <code><a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank" >ActivatedRouteSnapshot</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                                <tr>
-                                                        <td>state</td>
-                                                        <td>
-                                                                    <code><a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank" >RouterStateSnapshot</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            no
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Observable | Promise | boolean</code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="saveToken"></a>
-                        <span class="name">
-                            <b>
-                            saveToken
-                            </b>
-                            <a href="#saveToken"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>saveToken(token: literal type)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/guards/auth/auth.guard.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/core/services/history-rest.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -960,9 +861,9 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>token</td>
+                                                        <td>deviceId</td>
                                                         <td>
-                                                                    <code>literal type</code>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -971,7 +872,23 @@
                                                     
 
                                                         <td>
-                                                                <code><p>Pass token</p>
+                                                                <code><p>Id device</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>blobId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>Id file</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -981,50 +898,12 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </div>
                                 <div class="io-description">
                                     
                                 </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="saveTokenFromSession"></a>
-                        <span class="name">
-                            <b>
-                            saveTokenFromSession
-                            </b>
-                            <a href="#saveTokenFromSession"><span class="fa fa-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>saveTokenFromSession()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/core/guards/auth/auth.guard.ts:35</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -1037,49 +916,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from &#x27;@angular/router&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { AuthService } from &#x27;../../services/auth/auth.service&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class AuthGuard implements CanActivate {
+export class HistoryRestService {
 
-  constructor(private authService: AuthService,
-    private router: Router) {
-
-  }
+  constructor(private http: HttpClient) { }
   /**
-   * @description Check active token
+   * @description Record device files in history
+   * @param deviceId Id device
+   * @param blobId Id file
    */
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
-    if (this.authService.token) {
-      return true;
-    } else if (sessionStorage.getItem(&#x27;authToken&#x27;)) {
-      this.saveTokenFromSession();
-      return true;
-    } else {
-      this.router.navigate([&#x27;&#x27;]);
-      return false;
-    }
-  }
-
-  /**
-   * @description Save token from session
-   */
-  saveTokenFromSession() {
-    const token: string &#x3D; sessionStorage.getItem(&#x27;authToken&#x27;);
-    this.saveToken({ Authorization: token });
-  }
-  /**
-   * @description Save token
-   * @param token Pass token
-   */
-  saveToken(token: { Authorization: string }): void {
-    this.authService.token &#x3D; token;
+  registerInHistory(deviceId: string, blobId: string) {
+    return this.http.post(&#x60;https://localhost:8443/history&#x60;, { deviceId: deviceId, blobId: blobId });
   }
 }
 </code></pre>
@@ -1121,7 +972,7 @@ export class AuthGuard implements CanActivate {
         <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthGuard.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'HistoryRestService.html';
         </script>
 
        <script src="../js/search/search.js"></script>

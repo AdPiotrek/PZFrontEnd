@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DeviceRestService} from '../../../core/services/device-rest/device-rest.service';
-import {Device} from '../../../shared/models/device';
-import {Observable} from 'rxjs/internal/Observable';
-import {FileUploadService} from '../../../core/services/file-upload/file-upload.service';
+import { DeviceRestService } from '../../../core/services/device-rest/device-rest.service';
+import { Device } from '../../../shared/models/device';
+import { Observable } from 'rxjs/internal/Observable';
+import { FileUploadService } from '../../../core/services/file-upload/file-upload.service';
 
 @Component({
   selector: 'app-upload-file-to-device',
@@ -14,8 +14,11 @@ export class UploadFileToDeviceComponent implements OnInit {
   devices: Observable<Array<Device>> = null;
   files: Observable<Array<{ blobid: string, blobName: string }>> = null;
   constructor(private deviceRest: DeviceRestService,
-              private fileRest: FileUploadService) { }
+    private fileRest: FileUploadService) { }
 
+  /**
+   * @description Single call when creating a devices and files component
+   */
   ngOnInit() {
     this.devices = this.deviceRest.getDevicesList();
     this.files = this.fileRest.getBlobsList();

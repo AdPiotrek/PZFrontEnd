@@ -5,7 +5,7 @@ import { AuthService } from '../../core/services/auth/auth.service';
 import { SignInRequest } from '../../shared/models/sign-in-request';
 import { NGXLogger } from 'ngx-logger';
 import { Router } from '@angular/router';
-import {GrowlService} from 'ngx-growl';
+import { GrowlService } from 'ngx-growl';
 
 @Component({
   selector: 'app-sign-in',
@@ -21,10 +21,12 @@ export class SignInComponent {
     private authService: AuthService,
     private logger: NGXLogger,
     private router: Router,
-              private growlService: GrowlService) {
+    private growlService: GrowlService) {
     this.createForm();
   }
-
+  /**
+   * @description Creating the form of the login object that adds the form
+   */
   createForm(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -32,7 +34,7 @@ export class SignInComponent {
     });
   }
   /**
-   * @description Logowanie
+   * @description Login to account
    */
   login(): void {
     const loginRequest: SignInRequest = this.loginForm.value;

@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryRestService {
 
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient) { }
+  /**
+   * @description Record device files in history
+   * @param deviceId Id device
+   * @param blobId Id file
+   */
   registerInHistory(deviceId: string, blobId: string) {
-    return this.http.post(`https://localhost:8443/history`, {deviceId: deviceId, blobId: blobId});
+    return this.http.post(`https://localhost:8443/history`, { deviceId: deviceId, blobId: blobId });
   }
 }

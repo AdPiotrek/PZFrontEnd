@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FileChangeEvent } from '@angular/compiler-cli/src/perform_watch';
 import { FileUploadService } from '../../../core/services/file-upload/file-upload.service';
-import {GrowlService} from 'ngx-growl';
+import { GrowlService } from 'ngx-growl';
 
 @Component({
   selector: 'app-file-adding',
@@ -16,11 +16,11 @@ export class FileAddingComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private fileService: FileUploadService,
-              private growlService: GrowlService) {
+    private growlService: GrowlService) {
 
   }
   /**
-   * @description createGroup calling the method createGroup()
+   * @description Single call when creating a group form component
    */
   ngOnInit() {
     this.createGroup();
@@ -43,7 +43,7 @@ export class FileAddingComponent implements OnInit {
     console.log(this.selectedFile);
   }
   /**
-   * @description Uploading a file
+   * @description Uploading a file into database
    */
   uploadFile(): void {
     if (this.selectedFile !== null) {
