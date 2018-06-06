@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {FileChangeEvent} from '@angular/compiler-cli/src/perform_watch';
-import {FileUploadService} from '../../../core/services/file-upload/file-upload.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FileChangeEvent } from '@angular/compiler-cli/src/perform_watch';
+import { FileUploadService } from '../../../core/services/file-upload/file-upload.service';
 
 @Component({
   selector: 'app-file-adding',
@@ -14,25 +14,35 @@ export class FileAddingComponent implements OnInit {
   selectedFile: File;
 
   constructor(private fb: FormBuilder,
-              private fileService: FileUploadService) {
+    private fileService: FileUploadService) {
 
   }
-
+  /**
+   * @description createGroup calling the method createGroup()
+   */
   ngOnInit() {
     this.createGroup();
   }
-
+  /**
+   * @description Creating a group
+   *
+   */
   createGroup(): void {
     this.fileForm = this.fb.group({
       file: [null, Validators.required]
     });
   }
-
+  /**
+   *
+   * @param {any} fileInputEvent File changes
+   */
   onFileChange(fileInputEvent: any) {
     this.selectedFile = <File>fileInputEvent.target.files[0];
     console.log(this.selectedFile);
   }
-
+  /**
+   * @description Uploading a file
+   */
   uploadFile(): void {
     const wrappedFile: FormData = new FormData();
     wrappedFile.append('file', this.selectedFile, this.selectedFile.name);

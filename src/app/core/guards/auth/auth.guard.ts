@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {AuthService} from '../../services/auth/auth.service';
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,12 @@ import {AuthService} from '../../services/auth/auth.service';
 export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService,
-              private router: Router) {
+    private router: Router) {
 
   }
-
+  /**
+   * @description Check active token
+   */
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -27,12 +29,17 @@ export class AuthGuard implements CanActivate {
     }
   }
 
-
+  /**
+   * @description Save token from session
+   */
   saveTokenFromSession() {
     const token: string = sessionStorage.getItem('authToken');
-    this.saveToken({Authorization: token});
+    this.saveToken({ Authorization: token });
   }
-
+  /**
+   * @description Save token
+   * @param token Pass token
+   */
   saveToken(token: { Authorization: string }): void {
     this.authService.token = token;
   }

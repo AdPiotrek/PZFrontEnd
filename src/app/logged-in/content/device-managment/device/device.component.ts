@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {Device} from '../../../../shared/models/device';
-import {switchMap} from 'rxjs/operators';
-import {DeviceRestService} from '../../../../core/services/device-rest/device-rest.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Device } from '../../../../shared/models/device';
+import { switchMap } from 'rxjs/operators';
+import { DeviceRestService } from '../../../../core/services/device-rest/device-rest.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-device',
@@ -15,22 +15,26 @@ export class DeviceComponent implements OnInit {
   devicEditForm: FormGroup;
 
   constructor(private currentRoute: ActivatedRoute,
-              private deviceRest: DeviceRestService,
-              private fb: FormBuilder) {
+    private deviceRest: DeviceRestService,
+    private fb: FormBuilder) {
     this.getDevice();
     this.buildForm();
   }
 
   ngOnInit() {
   }
-
+  /**
+   * @description Form of editing the device
+   */
   buildForm() {
     this.devicEditForm = this.fb.group({
       name: ['', Validators.required],
       macAdress: ['', Validators.required],
     });
   }
-
+  /**
+   * @description Downloading the device
+   */
   getDevice(): void {
     this.currentRoute.params.pipe(
       switchMap((params: Params) => {

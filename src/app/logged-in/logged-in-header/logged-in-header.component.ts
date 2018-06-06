@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoggedInHeaderComponent implements OnInit {
 
+  /**
+   * @ignore
+   */
   constructor() { }
 
+  /**
+   * @ignore
+   */
   ngOnInit() {
   }
 

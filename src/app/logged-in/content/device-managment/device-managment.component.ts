@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from '@angular/material';
-import {Device} from '../../../shared/models/device';
-import {DeviceRestService} from '../../../core/services/device-rest/device-rest.service';
-import {Router} from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
+import { Device } from '../../../shared/models/device';
+import { DeviceRestService } from '../../../core/services/device-rest/device-rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-device-managment',
@@ -16,7 +16,7 @@ export class DeviceManagmentComponent implements OnInit {
   displayedColumns = ['position', 'name', 'macAdress'];
 
   constructor(private deviceRest: DeviceRestService,
-              private router: Router) {
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -27,6 +27,10 @@ export class DeviceManagmentComponent implements OnInit {
       });
   }
 
+  /**
+   * @description Transition to the device
+   * @param row Transmission of the selected device
+   */
   goToDevice(row: Device): void {
     console.log(row);
     this.router.navigate(['logged/device', row.deviceid]);
