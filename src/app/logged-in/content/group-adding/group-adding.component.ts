@@ -35,6 +35,7 @@ export class GroupAddingComponent implements OnInit {
     this.deviceGroupRest.addDeviceGroup(this.addGroupForm.get('name').value)
       .subscribe(() => {
           this.addGroupForm.reset();
+          this.growlService.addSuccess('Grupa dodana');
         },
         (err: HttpErrorResponse) => {
           this.logger.error(err);

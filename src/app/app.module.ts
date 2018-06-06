@@ -34,6 +34,7 @@ import { UploadFileToDeviceListRowComponent } from './logged-in/content/upload-f
 import { UploadFileToGroupComponent } from './logged-in/content/upload-file-to-group/upload-file-to-group.component';
 import { UploadFileToGroupListRowComponent } from './logged-in/content/upload-file-to-group/upload-file-to-group-list-row/upload-file-to-group-list-row.component';
 import {GrowlModule} from 'ngx-growl';
+import { HistoryListComponent } from './logged-in/content/history-list/history-list.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {GrowlModule} from 'ngx-growl';
     UploadFileToDeviceListRowComponent,
     UploadFileToGroupComponent,
     UploadFileToGroupListRowComponent,
+    HistoryListComponent,
   ],
   imports: [
     BrowserModule,

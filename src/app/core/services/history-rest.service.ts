@@ -11,4 +11,8 @@ export class HistoryRestService {
   registerInHistory(deviceId: string, blobId: string) {
     return this.http.post(`https://localhost:8443/history`, {deviceId: deviceId, blobId: blobId});
   }
+
+  getHistory() {
+    return this.http.get(`https://localhost:8443/history`);
+  }
 }

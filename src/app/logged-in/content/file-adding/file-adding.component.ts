@@ -36,7 +36,7 @@ export class FileAddingComponent implements OnInit {
   }
 
   uploadFile(): void {
-    if (this.selectedFile !== null) {
+    if (this.selectedFile == null) {
       this.growlService.addError('Nie dodałes pliku');
       return;
     }
@@ -45,6 +45,11 @@ export class FileAddingComponent implements OnInit {
     this.fileService.uploadFile(wrappedFile)
       .subscribe(() => {
 
-      });
+        },
+        (err) => {
+          if (err.status === 409) {
+          this.growlService.addError('Zduplikowana nazwa pliku');
+          }
+        });
   }
 }

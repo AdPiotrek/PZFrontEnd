@@ -14,6 +14,7 @@ import {GroupComponent} from './logged-in/content/group-managment/group/group.co
 import {FileAddingComponent} from './logged-in/content/file-adding/file-adding.component';
 import {UploadFileToDeviceComponent} from './logged-in/content/upload-file-to-device/upload-file-to-device.component';
 import {UploadFileToGroupComponent} from './logged-in/content/upload-file-to-group/upload-file-to-group.component';
+import {HistoryListComponent} from './logged-in/content/history-list/history-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -33,7 +34,8 @@ const routes: Routes = [
       {path: 'group/:id', component: GroupComponent},
       {path: 'add-file', component: FileAddingComponent},
       {path: 'upload-file-to-device', component: UploadFileToDeviceComponent},
-      {path: 'upload-file-to-group', component: UploadFileToGroupComponent}
+      {path: 'upload-file-to-group', component: UploadFileToGroupComponent},
+      {path: 'history', component: HistoryListComponent}
     ]
   }
 ];

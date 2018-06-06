@@ -7,41 +7,41 @@
   </div>
   <span class="menu-indicator"> {{ 'Użytkownik' | uppercase }}</span>
   <ul>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-user"></i>
       <a> <span>Profil</span></a>
     </li>
   </ul>
   <span class="menu-indicator"> {{ 'urządzenia' | uppercase }}</span>
   <ul>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-plus"></i>
       <a routerLink="/logged/addDevice"> <span>Dodaj urządzenie</span></a>
     </li>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-desktop"></i>
       <a routerLink="/logged/devices"> <span>Zarządzaj urządzeniami</span></a>
     </li>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-plus-circle"></i>
       <a routerLink="/logged/addGroup"> <span>Dodaj grupę</span></a>
     </li>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-server"></i>
       <a routerLink="/logged/groups"> <span>Zarządzaj grupami</span></a>
     </li>
   </ul>
   <span class="menu-indicator"> {{ 'Pliki' | uppercase }}</span>
   <ul>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-window-restore"></i>
       <a routerLink="/logged/add-file"> <span>Dodaj plik na urządzeniu</span></a>
     </li>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-file"></i>
       <a routerLink="/logged/upload-file-to-device"> <span>Zainstaluj plik na urządzeniu</span></a>
     </li>
-    <li>
+    <li routerLinkActive="active">
       <i class="fa fa-window-restore"></i>
       <a routerLink="/logged/upload-file-to-group"> <span>Zainstaluj plik na grupie urządzeń</span></a>
     </li>

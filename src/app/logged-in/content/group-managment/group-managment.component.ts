@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
-import {Device} from '../../../shared/models/device';
 import {GroupRestService} from '../../../core/services/groups-rest/group-rest.service';
 import {DeviceGroup} from '../../../shared/models/device-group';
 
@@ -29,13 +28,14 @@ export class GroupManagmentComponent implements OnInit {
   getGroups(): void {
     this.deviceGroupRest.getLoggedUserDeviceGroups()
       .subscribe((group: Array<DeviceGroup>) => {
+        console.log('GroupsReceived');
         this.dataSource = new MatTableDataSource(group);
         this.dataSource.sort = this.sort;
       });
   }
 
   goToGroup(row: DeviceGroup): void {
-    this.router.navigate(['/logged/group', row.idDeviceFamilies ]);
+    this.router.navigate(['/logged/group', row.idDeviceFamilies]);
   }
 
 

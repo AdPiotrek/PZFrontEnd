@@ -28,7 +28,7 @@ export class DeviceAddingComponent implements OnInit {
   createForm(): void {
     this.addDeviceForm = this.fb.group({
       name: ['', [Validators.required]],
-      macAdress: ['', [Validators.required]]
+      macAdress: ['', [Validators.required, Validators.pattern('^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$')]]
     });
   }
 
@@ -44,7 +44,6 @@ export class DeviceAddingComponent implements OnInit {
         },
         () => {
           this.growlService.addError('Nazwa lub adres mac są zajętę przez inne urządzenie');
-
         });
   }
 

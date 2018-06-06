@@ -22,6 +22,7 @@ export class DeviceManagmentComponent implements OnInit {
   ngOnInit() {
     this.deviceRest.getDevicesList()
       .subscribe((devices: Device[]) => {
+        console.log('dataSourceAdded');
         this.dataSource = new MatTableDataSource<Device>(devices);
         this.dataSource.sort = this.sort;
       });
